@@ -42,6 +42,7 @@ install:
 
   # Build.
   - mkdir ../build && cd ../build
+  - echo "$(which ant)"
   - cmake ../opensim-gui -DCMAKE_PREFIX_PATH=~/opensim-core -DAnt_EXECUTABLE="$(which ant)" -DANT_ARGS="-Dnbplatform.default.netbeans.dest.dir=/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans;-Dnbplatform.default.harness.dir=/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans/harness"
   - make CopyOpenSimCore
   - make PrepareInstaller
