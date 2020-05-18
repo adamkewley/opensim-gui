@@ -43,7 +43,7 @@ install:
 
   # Build.
   - mkdir ../build && cd ../build
-  - find "/Applications/NetBeans" -maxdepth 2
+  - find "/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/" -maxdepth 2
   - cmake ../opensim-gui -DCMAKE_PREFIX_PATH=~/opensim-core -DAnt_EXECUTABLE="$(which ant)" -DANT_ARGS="-Dnbplatform.default.netbeans.dest.dir=/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/Resources/NetBeans;-Dnbplatform.default.harness.dir=/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/Resources/NetBeans/harness"
   - make CopyOpenSimCore
   - make PrepareInstaller
