@@ -28,7 +28,8 @@ before_install:
   #brew cask search java
   #brew cask install java8
   - brew install ant
-  - brew cask install netbeans
+  # Cask 'netbeans' gives v11.2 (incompatable)
+  - brew cask install netbeans-java-se
   
   ## Install opensim-core.
   # The opensim-core travis script uploads the opensim-core binaries to sourceforge.
@@ -43,8 +44,7 @@ install:
 
   # Build.
   - mkdir ../build && cd ../build
-  - find "/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/" -maxdepth 2
-  - cmake ../opensim-gui -DCMAKE_PREFIX_PATH=~/opensim-core -DAnt_EXECUTABLE="$(which ant)" -DANT_ARGS="-Dnbplatform.default.netbeans.dest.dir=/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/Resources/NetBeans;-Dnbplatform.default.harness.dir=/Applications/NetBeans/Apache NetBeans 11.3.app/Contents/Resources/NetBeans/harness"
+  - cmake ../opensim-gui -DCMAKE_PREFIX_PATH=~/opensim-core -DAnt_EXECUTABLE="$(which ant)" -DANT_ARGS="-Dnbplatform.default.netbeans.dest.dir=/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans;-Dnbplatform.default.harness.dir=/Applications/NetBeans/NetBeans 8.2.app/Contents/Resources/NetBeans/harness"
   - make CopyOpenSimCore
   - make PrepareInstaller
 
